@@ -9,14 +9,6 @@ As a bonus, it's also a mini-SOA architecture that gets autoconnected. Pretty co
 
 For OSX, Boot2Docker will only allow you to mount directories that are under `/Users` somewhere. So make sure your code's root folder is `/Users`.
 
-```
-| /Users/.../
-   | - cm/
-   | - courses-service/
-   | - institution-service/
-   | - notifications/
-```
-
 ##Install
 
  - Install Boot2Docker and Docker 1.3.x (tested with 1.3.2) (http://boot2docker.io/)
@@ -24,6 +16,14 @@ For OSX, Boot2Docker will only allow you to mount directories that are under `/U
  - Recommended: Set `dockerhost` in your `/etc/hosts` file
 
 ##Run
+
+Firstly, you need to set up the project dependencies. Docker would normally do this but we're editting the files locally:
+
+ - If you haven't alread, run `npm install -g webpack`
+ - Within both `main/` and `books-service/` run `npm install`
+ - Within both `main/` and `books-service/` run `webpack`
+
+Now start the project:
 
  - Run `fig build`
  - When that's finished, run `fig up`
@@ -33,8 +33,6 @@ Tada! You should now see your server changes live. Try changing something in one
 The client is also hooked up. To see changes there you need to:
 
  - `cd` into the project you want to edit
- - Run `npm install`
- - If you haven't alread, run `npm install -g webpack`
  - Run `webpack -w`
  - If you're using live reload, run `npm run lr`
 
