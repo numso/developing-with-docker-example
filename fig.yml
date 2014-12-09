@@ -1,0 +1,33 @@
+web:
+  build: ./main
+  command: '/bin/sh -c "cd /app && npm run watch"'
+  volumes:
+   - "./main:/app"
+  environment:
+   - PROJECT_PORT=3000
+   - PROJECT_BOOKSURL=http://books:4000
+  links:
+   - books
+   - db
+  ports:
+   - "3000:3000"
+
+books:
+  build: ./books-service
+  command: '/bin/sh -c "cd /app && npm run watch"'
+  volumes:
+   - "./books-service:/app"
+  environment:
+   - PROJECT_PORT=4000
+   - PROJECT_DB_TABLE=masterpieces
+  links:
+   - db
+  ports:
+   - "4000:4000"
+
+db:
+  image: 'dockerfile/rethinkdb'
+  ports:
+   - "8080:8080"
+   - "28015:28015"
+   - "29015:29015"

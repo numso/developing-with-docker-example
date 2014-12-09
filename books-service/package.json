@@ -1,0 +1,30 @@
+{
+  "name": "books-service",
+  "version": "1.0.0",
+  "description": "A place to manage books",
+  "scripts": {
+    "lr": "node --harmony scripts/live-reload.js",
+    "start": "node --harmony server/app.js",
+    "watch": "supervisor --harmony -w server server/app.js"
+  },
+  "author": "Dallin Osmun",
+  "license": "MIT",
+  "dependencies": {
+    "6to5": "^1.14.17",
+    "6to5-loader": "^0.2.3",
+    "axios": "^0.4.1",
+    "config": "^1.9.0",
+    "css-loader": "^0.9.0",
+    "gulp-livereload": "^2.1.1",
+    "koa": "^0.13.0",
+    "koa-body": "^0.4.0",
+    "koa-router": "^3.7.0",
+    "koa-static": "^1.4.7",
+    "node-watch": "^0.3.4",
+    "react": "^0.12.1",
+    "rethinkdbdash": "^1.15.3",
+    "style-loader": "^0.8.2",
+    "webpack": "^1.4.13",
+    "zurb-foundation": "^4.2.3"
+  }
+}
